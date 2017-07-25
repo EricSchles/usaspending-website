@@ -16,26 +16,23 @@ const propTypes = {
     columns: PropTypes.array
 };
 
-export default class HeaderRow extends React.Component {
-    updateScrollPosition(x, y) {
+export default class HeaderRow extends React.PureComponent {
+    updateScrollPosition(scroll) {
         // by directly modifying the DOM, we can skip the render process
         // this avoids having to iterate through the columns again
-        this.rowDiv.style.left = `${-1 * x}px`;
-        this.rowDiv.style.top = `${y}px`;
+        return `translate(${-1 * scroll.x}px, 0px)`;
     }
 
     render() {
-        const visibleWidth = min([this.props.maxWidth, this.props.width]);
-
         const style = {
             height: this.props.headerHeight,
-            minWidth: visibleWidth,
-            maxWidth: visibleWidth
+            width: this.props.visibleWidth
         };
 
         const rowStyle = {
             height: this.props.headerHeight,
-            width: this.props.width
+            width: this.props.contentWidth,
+            transform: this.updateScrollPosition(this.props.scrollPos)
         };
 
         const headers = this.props.columns.map((column) => (
@@ -46,10 +43,7 @@ export default class HeaderRow extends React.Component {
             <div className="ibt-header" style={style}>
                 <div
                     className="ibt-header-row"
-                    style={rowStyle}
-                    ref={(div) => {
-                        this.rowDiv = div;
-                    }}>
+                    style={rowStyle}>
                     {headers}
                 </div>
             </div>

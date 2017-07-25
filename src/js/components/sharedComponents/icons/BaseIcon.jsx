@@ -39,9 +39,9 @@ export default class BaseIcon extends React.Component {
         this.prepareIcons();
 
         // necessary for IE support
-        svg4everybody({
-            polyfill: true
-        });
+        // svg4everybody({
+        //     polyfill: true
+        // });
     }
     componentWillUnmount() {
         // unsubscribe to reduce memory overhead, if we have a subscription active
