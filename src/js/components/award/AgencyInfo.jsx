@@ -68,7 +68,8 @@ export default class AgencyInfo extends React.Component {
         const award = this.props.selectedAward;
         const toptierAgency = `${this.state.agencyType}_agency_name`;
         const subtierAgency = `${this.state.agencyType}_subtier_name`;
-        const officeAgency = `${this.state.agencyType}_office_name`;
+        // TODO- Lizzie: confirm object structure in API once results aren't null
+        const officeAgency = `${this.state.agencyType}_office_agency`;
         let office = "";
         let subtier = "";
         let toptier = "Not Available";

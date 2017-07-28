@@ -224,6 +224,7 @@ const remapData = (data, idField) => {
         if (data.awarding_agency.subtier_agency) {
             awardingSubtierName = data.awarding_agency.subtier_agency.name;
         }
+        // TODO - Lizzie: confirm object structure in API once results aren't null
         if (data.awarding_agency.office_agency) {
             awardingOfficeName = data.awarding_agency.office_agency.name;
         }
@@ -236,6 +237,7 @@ const remapData = (data, idField) => {
         if (data.funding_agency.subtier_agency) {
             fundingSubtierName = data.funding_agency.subtier_agency.name;
         }
+        // TODO - Lizzie: confirm object structure in API once results aren't null
         if (data.funding_agency.office_agency) {
             fundingOfficeName = data.funding_agency.office_agency.name;
         }
